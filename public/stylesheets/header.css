@@ -1,0 +1,41 @@
+.header-fixed {
+	background-color:#292c2f;
+	box-shadow:0 1px 1px #ccc;
+	padding: 15px 15px;
+	height: 70px;
+	color: #ffffff;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0 auto;
+}
+ .header-fixed-placeholder{
+	height: 70px;
+	display: none;
+}
+ /* The navigation links */
+ .header-fixed a {
+	color: #ffffff;
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: 800;
+}
+ .header-fixed nav {
+	font:16px Arial, Helvetica, sans-serif;
+	line-height: 40px;
+	float: right;
+}
+ .header-fixed nav a{
+	display: inline-block;
+	padding: 0 5px;
+	text-decoration:none;
+	color: #ffffff;
+	opacity: 0.9;
+}
+ .header-fixed nav a:hover{
+	opacity: 1;
+}
+ .header-fixed nav a.selected {
+	color: #608bd2;
+	pointer-events: none;
+	opacity: 1;
+}

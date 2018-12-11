@@ -1,51 +1,86 @@
-#formWrap {
-  position: absolute;
-  display: inline-block;
-  box-sizing: border-box;
-  width: 30vw;
-  min-height: 50vh;
-  top: 50%;
-  left: 50%;
-  padding: 1em;
-  margin: -25vh 0 0 -15vw;
-  font-size: 1.25em;
-  background-color: rgba(66,66,66 ,1);
-  transition: 0.3s;
+#bg {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100vw;
+	height: 100vh;
+  z-index: -1;
+  background-image: url("./bg.jpg");
+	background-size: cover;
+  background-position: bottom;
+  opacity: 0.7;
 }
-
-.formFieldWrap {
+.container {
+  position: fixed;
+  width: 50vw;
+  height: 50vh;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  text-align:center;
+}
+.login-form {
   position: relative;
-  display: inline-block;
-  box-sizing: border-box;
-  width: 100%;
-  height: 3em;
-  padding: 0.5em;
-  margin: 0;
-  text-align: center;
+  background:white;
+  width:450px;
+  border-radius:6px;
+  margin: 0 auto 0 auto;
+  padding:5px 25px 70px 25px;
 }
-
-.inputText {
-  display: inline-block;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  padding: 0 1em;
-  margin: 0;
-  border: none;
-  background-color: rgba(245,245,245 ,1);
-  color: rgba(33,33,33 ,1);
+.username {
+  background:#ecf0f1;
+  border: #ccc 1px solid;
+  border-bottom: #ccc 2px solid;
+  padding: 8px;
+  width: 400px;
+  margin-top: 10px;
+  font-size: 1em;
+  border-radius: 4px;
 }
+.password {
+  border-radius:4px;
+  background:#ecf0f1;
+  border: #ccc 1px solid;
+  padding: 8px;
+  width: 400px;
+  font-size:1em;
+}
+.log-in {
+  background:#3498db;
+  width:420px;
+  padding-top:8px;
+  padding-bottom:8px;
+  color:white;
+  border-radius:4px;
+  border: #2980b9 1px solid;
 
-.inputButtons {
-  position: relative;
-  display: inline-block;
-  box-sizing: border-box;
-  width: 30%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  font-weight: 700;
-  background-color: rgba(245,245,245 ,1);
-  color: rgba(33,33,33 ,1);
-  border: none;
+  margin-top:20px;
+  margin-bottom:20px;
+  float:left;
+  margin-left:16px;
+  font-weight:800;
+  font-size: 1em;
+}
+.log-in:hover {
+  background:#3594D2;
+}
+.sign-up {
+  float:left;
+  background:#3498db;
+  width:200px;  padding-top:5px;
+  padding-bottom:5px;
+  color:white;
+  border-radius:4px;
+  border: #2980b9 1px solid;
+
+  margin-top:20px;
+  margin-bottom:20px;
+  margin-left:10px;
+  font-weight:800;
+  font-size:0.8em;
+}
+.sign-up:hover {
+  background:#3594D2;
 }
