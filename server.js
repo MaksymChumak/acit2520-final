@@ -66,7 +66,7 @@ app.post('/', (request, response) => {
         location: `Location: ${request.body.location}`,
         icon: `<img src=/icons/${result['icon']}.png>`,
         summary: `Summary: ${result['summary']}`,
-        temp: `Temp: ${result['temp']}°C`,
+        temp: `Temp: ${result['temp']}°F`,
         title: 'Results',
         name: 'Maksym Chumak',
         studentNumber: 'A00931833'
