@@ -190,3 +190,26 @@ var weather = (cords) => {
 }
 
 */
+
+
+/*
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pictures</title>
+		<link rel="stylesheet" href="style.css"></link>
+		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	</head>
+	<body>
+	   <div id="container">
+       {{> menu}}
+			 {{> picsheader}}
+				{{> picsform}}
+				{{{pic1}}}
+        {{{pic2}}}
+        {{{pic3}}}
+        {{{pic4}}}
+      </div>
+	</body>
+</html>
+*/

@@ -2,7 +2,8 @@ const express = require('express');
 const hbs = require('hbs');
 const bodyParser = require('body-parser');
 const darksky = require("./darksky");
-const second_api = require("./second_api");
+const pixabay = require("./pixabay");
+require('dotenv').config();
 
 port = process.env.PORT || 8080;
 
@@ -17,9 +18,6 @@ hbs.registerHelper('getTime', () => {
   return date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear();
 });
 
-hbs.registerHelper('upper', (text) => {
-  return text.toUpperCase();
-})
 
 // Midleware
 app.use(bodyParser.urlencoded({
@@ -42,30 +40,77 @@ app.get('/', (request, response) => {
   });
 });
 
+app.get('/gallery', (request, response) => {
+  response.render('gallery.hbs', {
+    title: 'Gallery',
+  });
+});
+
+
 app.get('/error', (request, response) => {
   response.render('error.hbs', {
   });
 });
 
 app.post('/', (request, response) => {
-  let lat = request.body.lat
-  let lng = request.body.lng
-  darksky.getWeather(lat, lng).then((result) => {
-    if (result) {
-      response.render('about.hbs', {
-        summary: `Summary: ${result['status']}`,
-        temp: `Temp: ${result['temp']}°C`
+
+  if (request.body.location == '') {
+    response.render('index.hbs', {
+      location: `No location entered`
+    });
+  } else {
+    darksky.getLocation(request.body.location).then((coordinates) => {
+      return darksky.getWeather(coordinates);
+    }).then((result) => {
+      response.render('results.hbs', {
+        location: `Location: ${request.body.location}`,
+        icon: `<img src=/icons/${result['icon']}.png>`,
+        summary: `Summary: ${result['summary']}`,
+        temp: `Temp: ${result['temp']}°C`,
+        title: 'Results',
+        name: 'Maksym Chumak',
+        studentNumber: 'A00931833'
       });
-    } else {
+    }).catch((error) => {
       response.status(400);
       response.render('error.hbs');
-    }
-  })
-})
+    });
+  }
+});
 
-app.get('/about', (request, response) => {
-  response.render('about.hbs', {
-    title: 'About',
+app.post('/gallery', (request, response) => {
+  if (request.body.picsentry == '') {
+    response.render('pics.hbs', {
+    });
+  } else {
+    pixabay.getGallery(request.body.image).then((results) => {
+      response.render('gallery_results.hbs', {
+        title: 'Results',
+        name: 'Maksym Chumak',
+        studentNumber: 'A00931833',
+        pic1: results['pic1'],
+        pic2: results['pic2'],
+        pic3: results['pic3'],
+        pic4: results['pic4']
+      });
+    }).catch((error) => {
+      response.status(400);
+      response.render('error.hbs');
+    });
+  }
+});
+
+app.get('/results', (request, response) => {
+  response.render('results.hbs', {
+    title: 'Results',
+    name: 'Maksym Chumak',
+    studentNumber: 'A00931833'
+  });
+});
+
+app.get('/gallery_results', (request, response) => {
+  response.render('gallery_results.hbs', {
+    title: 'Gallery Results',
     name: 'Maksym Chumak',
     studentNumber: 'A00931833'
   });

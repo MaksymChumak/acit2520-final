@@ -2,7 +2,7 @@
 .container-about {
   position: fixed;
   width: 50vw;
-  height: 50vh;
+  height: 90vh;
   top: 0px;
   bottom: 0px;
   left: 0px;
@@ -45,4 +45,14 @@
   font-size: 15px;
   margin: 1em 0 1em;
   letter-spacing: 0.06em;
+}
+
+.weather-icon {
+  top: 50%
+}
+
+.pictures {
+  height: 100px;
+  width: 100px;
+  display: inline-block;
 }
